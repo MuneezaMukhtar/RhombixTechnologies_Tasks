@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muneeza Mukhtar | Computer Engineer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #0A2463;
+        --secondary: #3E92CC;
+        --accent: #D8315B;
+        --light: #FFFAFF;
+        --dark: #1E1B18;
+        --gray: #6D7275;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+        background-color: var(--primary);
+        color: var(--light);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--light);
+        text-decoration: none;
+    }
+
+    .logo span {
+        color: var(--secondary);
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin-left: 30px;
+    }
+
+    .nav-links a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--secondary);
+    }
+
+    .menu-toggle {
+        display: none;
+        cursor: pointer;
+    }
+
+    /* Download Button */
+    .download-btn {
+        background-color: var(--accent);
+        color: var(--light);
+        padding: 8px 20px;
+        border-radius: 5px;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    .download-btn:hover {
+        background-color: #c02a50;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Popup Styles */
+    .download-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        color: white;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 9999;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+        border: 2px solid var(--secondary);
+        max-width: 90%;
+    }
+
+    .download-popup h3 {
+        font-family: 'Pacifico', cursive;
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: var(--light);
+    }
+
+    .download-popup p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .download-popup .popup-btn {
+        background-color: var(--light);
+        color: var(--primary);
+        border: none;
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .download-popup .popup-btn:hover {
+        background-color: var(--secondary);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translate(-50%, -60%); }
+        to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 9998;
+        display: none;
+    }
+
+    /* Hero Section */
+    #hero {
+        height: 100vh;
+        display: flex;
+        align-items: left;
+        padding-top: 160px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+        color: var(--light);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        z-index: 2;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+        color: var(--secondary);
+    }
+
+    .hero-content p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .btn {
+        display:  inline-flexbox;
+        background-color: var(--secondary);
+        color: var(--light);
+        padding: 12px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--secondary);
+        margin-left: 15px;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--secondary);
+    }
+
+    .hero-pattern {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%233E92CC" width="50" height="50" x="50" y="50"/><rect fill="%233E92CC" width="50" height="50"/><path fill="%230A2463" d="M50 50h50v50H50zM0 0h50v50H0z"/></svg>');
+        opacity: 0.1;
+        display:none;
+    }
+    
+    /* Hero Section Updates */
+    .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .hero-text {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-pic {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 20px;
+        border: 5px solid var(--secondary);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: var(--primary);
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            transition: left 0.3s;
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+        }
+
+        .download-btn {
+            margin: 15px 0;
+            width: 80%;
+            text-align: center;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .hero-content {
+            flex-direction: column;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+        }
+
+        .profile-pic {
+            max-width: 250px;
+            max-height: fit-content;
+            margin-top: 30px;
+        }
+    }
+    
+        /* About Section */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--secondary);
+            border-radius: 5px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-info p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .project-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .project-links a i {
+            margin-right: 5px;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        #contact .section-title h2 {
+            color: var(--light);
+        }
+
+        #contact .section-title h2::after {
+            background-color: var(--accent);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-detail i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--light);
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--light);
+        }
+
+        .btn-accent:hover {
+            background-color: #c02a50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left, .right {
+                left: 0;
+            }
+        }
+       
+
+
+    /* Rest of your existing CSS... */
+    /* [Previous CSS content remains unchanged] */
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Muneeza <span>Mukhtar</span></a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button id="downloadBtn" class="download-btn">Download Portfolio</button></li>
+                    <li><button id="downloadResumeBtn" class="download-btn">Download My Resume</button></li>
+
+                   
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Muneeza Mukhtar</span></h1>
+                    <p>A passionate Computer Engineer specializing in AI, embedded systems, and full-stack development. I build innovative solutions that bridge hardware and software.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="Capture.PNG" alt="Muneeza Mukhtar" class="profile-pic">
+                </div>
+            </div>
+            <div class="hero-pattern"></div>
+        </div>
+    </section>
+<!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Innovating at the intersection of hardware and AI</h3>
+                    <p>Detail-oriented and innovative Computer Engineer with a strong foundation in software development, embedded systems, and AI integration. Proven ability to design and implement efficient solutions, with hands-on experience in real-time projects involving IoT, machine learning, and system automation.</p>
+                    <p>I'm passionate about using technology to solve real-world problems, from healthcare applications like AI-powered stethoscopes to industrial IoT solutions.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or mentoring aspiring engineers.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>AI/ML (TensorFlow, PyTorch)</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Embedded Systems</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Web Development</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Mobile Development</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Circuit Design</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <!-- Project 1 - AI Stethoscope -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="aistetho.PNG" alt="AI Stethoscope">
+                </div>
+                <div class="project-info">
+                    <h3>AI-Driven Stethoscope</h3>
+                    <p>Enhanced auscultation using deep learning models to analyze and classify heart and lung sounds for medical diagnosis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">TensorFlow</span>
+                        <span class="project-tag">Deep Learning</span>
+                        <span class="project-tag">Librosa</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 - Hotel Management -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="hotelmanagement.PNG" alt="Hotel Management">
+                </div>
+                <div class="project-info">
+                    <h3>Hotel Management System</h3>
+                    <p>Full-stack web application for hotel operations management with MySQL database and Bootstrap frontend.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML/CSS</span>
+                        <span class="project-tag">Bootstrap</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">PHP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 - Face Recognition -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Face Parts Recognition">
+                </div>
+                <div class="project-info">
+                    <h3>Face Parts Recognition</h3>
+                    <p>Computer vision system using OpenCV to detect and recognize facial features and components.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">OpenCV</span>
+                        <span class="project-tag">Image Processing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 - TravelEase App -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="TravelEase App">
+                </div>
+                <div class="project-info">
+                    <h3>TravelEase Mobile App</h3>
+                    <p>Cross-platform mobile application for travel planning and management with Firebase backend.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React Native</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">UI/UX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 - Fire Alarm System -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="firealarm.PNG" alt="Fire Alarm System">
+                </div>
+                <div class="project-info">
+                    <h3>Fire Alarm System Using Arduino</h3>
+                    <p>An IoT-based fire detection system using temperature and smoke sensors with Arduino, providing real-time alerts via buzzer and LED indicators.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Arduino</span>
+                        <span class="project-tag">IoT</span>
+                        <span class="project-tag">Sensors</span>
+                        <span class="project-tag">Embedded Systems</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 - Water Level Indicator -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="waterlevel.PNG" alt="Water Level Indicator">
+                </div>
+                <div class="project-info">
+                    <h3>Water Level Indicator Using ICs</h3>
+                    <p>A hardware solution using various ICs to monitor and display water levels in tanks with visual and audible alerts.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Electronics</span>
+                        <span class="project-tag">IC Circuits</span>
+                        <span class="project-tag">Proteus</span>
+                        <span class="project-tag">Sensor Networks</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 7 - IoT Cricket Scoreboard -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="iotcricketscoreboard.PNG" alt="IoT Cricket Scoreboard">
+                </div>
+                <div class="project-info">
+                    <h3>IoT Cricket Scoreboard</h3>
+                    <p>Wireless cricket scoreboard using P10 LED display and ESP8266 module with real-time updates.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Arduino</span>
+                        <span class="project-tag">IoT</span>
+                        <span class="project-tag">ESP8266</span>
+                        <span class="project-tag">LED Display</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 8 - Object Detection -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Object Detection">
+                </div>
+                <div class="project-info">
+                    <h3>Object Detection System</h3>
+                    <p>Detection and tracking of potential targeting objects using YOLOv5/YOLOv8 models with OpenCV and Python.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">OpenCV</span>
+                        <span class="project-tag">YOLO</span>
+                        <span class="project-tag">Machine Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 9 - Language Translator -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Language Translator">
+                </div>
+                <div class="project-info">
+                    <h3>Real-Time Language Translator</h3>
+                    <p>An AI-powered application that translates speech/text between multiple languages in real-time using NLP techniques.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">TensorFlow</span>
+                        <span class="project-tag">Speech Recognition</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MuneezaMukhtar?tab=repositories" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Education</h2>
+            </div>
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>AI Tech Intern</h3>
+                        <h4>AITech, Islamabad</h4>
+                        <span class="timeline-date">JUL 2024 - SEP 2024</span>
+                        <p>Worked on the project "Detection and Tracking of Potential Targeting Objects using Machine Learning Techniques". Applied object detection models (YOLOv5/YOLOv8), utilized Python, OpenCV, and contributed to dataset preparation and model training.</p>
+                    </div>
+                </div>
+                
+                <!-- Education 1 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Bachelor's in Computer Engineering</h3>
+                        <h4>Institute of Space and Technology, Islamabad</h4>
+                        <span class="timeline-date">2020 - 2024</span>
+                        <p>CGPA: 3.4/4.0. Specialized in AI, embedded systems, and software development. Final Year Project: AI-Driven Stethoscope for Enhanced Auscultation Using Deep Learning Models.</p>
+                    </div>
+                </div>
+                
+                <!-- Education 2 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>FSC (Computer Science)</h3>
+                        <h4>KRL Model College for Girls, Kahuta, Rawalpindi</h4>
+                        <span class="timeline-date">2018 - 2020</span>
+                        <p>Grade: 79% - A. Focused on computer science fundamentals, mathematics, and physics.</p>
+                    </div>
+                </div>
+                
+                <!-- Education 3 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Matriculation (Science Group)</h3>
+                        <h4>KRL Model College for Girls, Kahuta, Rawalpindi</h4>
+                        <span class="timeline-date">2016 - 2018</span>
+                        <p>Grade: 82% - A1. Strong foundation in science and mathematics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Talk About Your Project</h3>
+                    <p>I'm currently looking for new opportunities in AI, embedded systems, or full-stack development. Whether you have a question or just want to say hi, I'll get back to you as soon as possible!</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>0331-5358159</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>muneezamukhtar333@gmail.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Club Line House no#5(Bait u-Zahra) Street no 1 kahuta, Rawalpindi</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/MuneezaMukhtar" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/MuneezaMukhtar" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">© 2024 Muneeza Mukhtar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Popup HTML -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="download-popup" id="downloadPopup">
+        <h3>Success!</h3>
+        <p>Your portfolio has been downloaded successfully.</p>
+        <button class="popup-btn" onclick="closePopup()">Awesome!</button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.timeline-item, .project-card, .skill-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animation
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.timeline-item, .project-card, .skill-item').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            animateOnScroll();
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            });
+        }
+
+        // Download functionality with stylish popup
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Create a blob of your HTML content
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            
+            // Create download link
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Muneeza_Mukhtar_Portfolio.html';
+            
+            // Trigger download
+            document.body.appendChild(a);
+            a.click();
+            
+            // Clean up and show stylish popup
+            setTimeout(() => {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+                showPopup();
+            }, 100);
+        });
+
+        // Popup functions
+        function showPopup() {
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('downloadPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('downloadPopup').style.display = 'none';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('popupOverlay').addEventListener('click', closePopup);
+
+        document.getElementById('downloadResumeBtn').addEventListener('click', function() {
+    const link = document.createElement('a');
+    link.href = 'muneezaCV.pdf'; // resume PDF ka correct path yahan dein
+    link.download = 'Muneeza_Mukhtar_Resume.pdf';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Resume download ke bad bhi aap same stylish popup chala sakti hain
+    showPopupResume();
+});
+
+// Stylish popup for Resume Download
+function showPopupResume() {
+    document.getElementById('popupOverlay').style.display = 'block';
+    const popup = document.getElementById('downloadPopup');
+    popup.querySelector('h3').textContent = 'Success!';
+    popup.querySelector('p').textContent = 'Your resume has been downloaded successfully.';
+    popup.style.display = 'block';
+}
+
+    </script>
+</body>
+</html>
